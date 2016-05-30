@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'contact' => 'contact#new'
+  
+  # get 'sessions#create'
 
-  #get 'contact' => 'contact#new'
+
+  # get 'home#show'
+
+   get 'contact' => 'contact#new'
 
   #get 'contact/edit'
 
@@ -14,6 +18,9 @@ Rails.application.routes.draw do
   
    root to: 'welcome#new'
    resources :contact
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
  #get 'welcome/new' => 'welcome#new'
