@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   
-  # get 'sessions#create'
+get '/auth/:provider/callback' => 'sessions#create'
 
+get '/signout' => 'sessions#destroy', :as => :signout
 
-  # get 'home#show'
+get '/signin' => 'sessions#new', :as => :signin
 
-   get 'contact' => 'contact#new'
+# root :to => 'home#index'
+
+get 'contact' => 'contact#new'
 
   #get 'contact/edit'
 
@@ -14,10 +17,10 @@ Rails.application.routes.draw do
   #get 'contact/show'
 
   match '/contacts',     to: 'contacts#new',via: 'get'
-   resources "contacts", only: [:new, :create]
+  resources "contacts", only: [:new, :create]
   
-   root to: 'welcome#new'
-   resources :contact
+  root to: 'welcome#new'
+  resources :contact
 
 
 
