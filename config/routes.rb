@@ -5,8 +5,7 @@ get '/auth/:provider/callback' => 'sessions#create'
 get '/signout' => 'sessions#destroy', :as => :signout
 
 get '/signin' => 'sessions#new', :as => :signin
-
-# root :to => 'home#index'
+root :to => 'home#index'
 
 get 'contact' => 'contact#new'
 
@@ -19,8 +18,11 @@ get 'contact' => 'contact#new'
   match '/contacts',     to: 'contacts#new',via: 'get'
   resources "contacts", only: [:new, :create]
   
-  root to: 'welcome#new'
+ # root to: 'welcome#new'
   resources :contact
+
+
+  
 
 
 
@@ -79,5 +81,4 @@ get 'contact' => 'contact#new'
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-  #   end
-end
+    end
